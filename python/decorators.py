@@ -4,6 +4,7 @@
 то есть функции, которые принимают другие функции в качестве аргументов и возвращают новые
 функции. В Python декораторы обычно применяются с помощью синтаксиса @decorator перед
 определением функции или класса.
+https://sky.pro/media/chto-takoe-dekoratory-v-python/
 '''
 
 import time
@@ -96,3 +97,23 @@ def say_hi():
 
 
 say_hi()
+
+
+
+'''
+пример докораторов классов
+'''
+def add_new_method(class_to_decorate):
+    class DecoratedClass(class_to_decorate):
+        def new_method(self):
+            return "This is a new method"
+    return DecoratedClass
+ 
+@add_new_method
+class MyClass:
+    def my_method(self):
+        return "This is my method"
+ 
+my_object = MyClass()
+print(my_object.my_method())  # вывод: This is my method
+print(my_object.new_method())  # вывод: This is a new method
