@@ -16,7 +16,7 @@ async def get_item(item_id: int):
 
 
 @app.get('items2/{item_id}')  # Параметр пути с дополнительными параметрами
-async def get_item2(item_id: Annotated(int, Path(title="The ID of the item to get"))):
+async def get_item2(item_id: Annotated[int, Path(title="The ID of the item to get")]):
     results = {"item_id": item_id}
     return results
 
